@@ -13,10 +13,12 @@
           <e p="MapNode.cs" t="Include" />
           <e p="MapReader.cs" t="Include" />
           <e p="MercatorProjection.cs" t="Include" />
+          <e p="MeshGenerator.cs" t="Include" />
           <e p="OSMBase.cs" t="Include" />
           <e p="OSMBounds.cs" t="Include" />
           <e p="OSMNodeParser.cs" t="Include" />
           <e p="OSMWay.cs" t="Include" />
+          <e p="TerrainEditor.cs" t="Include" />
         </e>
       </e>
       <e p="Map Reader.sln" t="IncludeFlat" />
