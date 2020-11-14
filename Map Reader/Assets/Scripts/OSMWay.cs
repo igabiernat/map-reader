@@ -8,6 +8,7 @@ public class OSMWay : OSMBase
     public bool isVisible;
     public List<long> childrenIDs;
     public XmlNodeList childrenNodes;
+    public bool isBoundary;
     public bool isBuilding;
     
     public OSMWay(XmlNode node)
@@ -25,8 +26,18 @@ public class OSMWay : OSMBase
         }
 
         if (childrenIDs[0] == childrenIDs[childrenIDs.Count - 1]) 
-            isBuilding = true;
+            isBoundary = true;
         else 
-            isBuilding = false;
+            isBoundary = false;
+
+        XmlNodeList tags = node.SelectNodes("tag");
+        foreach (XmlNode tag in tags)
+        {
+            string key = GetAttribute<string>("k",tag.Attributes);
+            if (key == "building")
+            {
+                isBuilding = GetAttribute<string>("v", tag.Attributes) == "yes";
+            }
+        }
     }
 }

@@ -44,7 +44,7 @@ public class OSMBounds : OSMBase
 
         centre = new Vector3((float)centreX,0, (float)centreY);*/
 
-        maxLat = actualBounds[0];
+        /*maxLat = actualBounds[0];
         minLat = actualBounds[1];
         maxLon = actualBounds[2];
         minLon = actualBounds[3];
@@ -57,21 +57,46 @@ public class OSMBounds : OSMBase
         centreX = (maxX + minX)/2;
         centreY = (maxY + minY)/2;
 
-        centre = new Vector3((float)centreX,0, (float)centreY);
+        centre = new Vector3((float)centreX,0, (float)centreY);*/
         
-        SetTerrain();
+        /*maxLat = actualBounds[0];
+        minLat = actualBounds[1];
+        maxLon = actualBounds[2];
+        minLon = actualBounds[3];
+
+        maxX = MercatorProjection.lonToX(maxLon);
+        minX = MercatorProjection.lonToX(minLon);
+        maxY = MercatorProjection.latToY(maxLat);
+        minY = MercatorProjection.latToY(minLat);
+
+        centreX = (maxX + minX)/2;
+        centreY = (maxY + minY)/2;
+
+        centre = new Vector3((float)centreX,0, (float)centreY);*/
+
+        minLat = actualBounds[0];
+        maxLat = actualBounds[1];
+        minLon = actualBounds[2];
+        maxLon = actualBounds[3];
+        
+        minX = MercatorProjection.lonToX(minLon);
+        maxX = MercatorProjection.lonToX(maxLon);
+        minY = MercatorProjection.latToY(minLat);
+        maxY = MercatorProjection.latToY(maxLat);
+        
+        centreX = (maxX + minX)/2;
+        centreY = (maxY + minY)/2;
+
+        centre = new Vector3((float)centreX,0, (float)centreY);       
+        
+        SetTerrainSize();
     }
 
-    private void SetTerrain()
+    private void SetTerrainSize()
     {
-        terrainData = new TerrainData();
         terrainXsize = (maxX - minX) / MapReader.divider;
         terrainYsize = (maxY - minY) / MapReader.divider;
-        terrainData.size = new Vector3((float)(terrainXsize),10, (float)(terrainYsize));
-        //GameObject terrain = Terrain.CreateTerrainGameObject(terrainData);
-        terrainX = 0 - (maxX - minX) / (2*MapReader.divider);
-        terrainY = 0 - (maxY - minY) / (2*MapReader.divider);
-        //terrain.transform.position = new Vector3((float)terrainX, 0, (float)terrainY);
-        
+        terrainX = 0 - ((maxX - minX) / (2*MapReader.divider));
+        terrainY = 0 - ((maxY - minY) / (2*MapReader.divider));
     }
 }

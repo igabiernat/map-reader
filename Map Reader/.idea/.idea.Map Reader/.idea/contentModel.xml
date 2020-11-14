@@ -7,18 +7,46 @@
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
         <e p="Resources" t="Include">
+          <e p="agh.txt" t="Include" />
+          <e p="bb.txt" t="Include" />
+          <e p="bb1.txt" t="Include" />
+          <e p="gorki.txt" t="Include" />
+          <e p="jaworze.txt" t="Include" />
+          <e p="kopiec.txt" t="Include" />
+          <e p="kopiec1.txt" t="Include" />
           <e p="map.txt" t="Include" />
         </e>
         <e p="Scripts" t="Include">
+          <e p="BuildingMaker.cs" t="Include" />
+          <e p="LocationsJSON.cs" t="Include" />
           <e p="MapNode.cs" t="Include" />
           <e p="MapReader.cs" t="Include" />
           <e p="MercatorProjection.cs" t="Include" />
           <e p="MeshGenerator.cs" t="Include" />
+          <e p="MeshSmoothing.cs" t="Include" />
           <e p="OSMBase.cs" t="Include" />
           <e p="OSMBounds.cs" t="Include" />
           <e p="OSMNodeParser.cs" t="Include" />
           <e p="OSMWay.cs" t="Include" />
           <e p="TerrainEditor.cs" t="Include" />
+          <e p="VertexConnection.cs" t="Include" />
+        </e>
+        <e p="SimplePoly - Town Pack" t="Include">
+          <e p="Standard Assets" t="Include">
+            <e p="Effects" t="Include">
+              <e p="ImageEffects" t="Include">
+                <e p="Scripts" t="Include">
+                  <e p="PostEffectsBase.cs" t="Include" />
+                  <e p="Quads.cs" t="Include" />
+                  <e p="SunShafts.cs" t="Include" />
+                </e>
+                <e p="Shaders" t="Include">
+                  <e p="SimpleClear.shader" t="Include" />
+                  <e p="SunShaftsComposite.shader" t="Include" />
+                </e>
+              </e>
+            </e>
+          </e>
         </e>
       </e>
       <e p="Map Reader.sln" t="IncludeFlat" />

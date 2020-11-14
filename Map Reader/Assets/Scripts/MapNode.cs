@@ -3,6 +3,7 @@ using System.Collections;
 using System.Globalization;
 using System.Linq;
 using System.Xml;
+using UnityEngine;
 
 public class MapNode : OSMBase
 {
@@ -11,6 +12,11 @@ public class MapNode : OSMBase
     public double longitude;
     public double X;
     public double Y;
+
+    public static implicit operator Vector3(MapNode node)
+    {
+        return new Vector3((float)node.X, 0, (float)node.Y);
+    }
 
     public MapNode(XmlNode node, OSMBounds bounds)
     {

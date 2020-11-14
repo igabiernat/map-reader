@@ -22,6 +22,8 @@ public class MapReader : MonoBehaviour
     public List<OSMWay> ways;
 
     public OSMBounds bounds;
+
+    public bool isReady = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -34,19 +36,15 @@ public class MapReader : MonoBehaviour
         mapXml.LoadXml(mapLoaded.text);
 
         GetNodes(mapXml.SelectNodes("/osm/node"));
-        SetBounds(mapXml.SelectSingleNode("/osm/bounds"));
         GetWays(mapXml.SelectNodes("/osm/way"));
+        GetBounds();
+        SetBounds(mapXml.SelectSingleNode("/osm/bounds"));
+        //GetWays(mapXml.SelectNodes("/osm/way"));
         meshGenerator.OnMapLoaded(bounds);
+        isReady = true;
     }
 
-    void GetWays(XmlNodeList wayNodes)
-    {
-        foreach (XmlNode wayNode in wayNodes)
-        {
-            OSMWay way = new OSMWay(wayNode);
-            ways.Add(way);
-        }
-    }
+
     void GetNodes(XmlNodeList nodes)
     {
         foreach (XmlNode mapNode in nodes)
@@ -55,22 +53,54 @@ public class MapReader : MonoBehaviour
             mapNodes[node.id] = node;
         }
 
-        foreach (KeyValuePair<long, MapNode> entry in mapNodes)
+        /*foreach (KeyValuePair<long, MapNode> entry in mapNodes)
         {
-            //if (entry.Value.latitude > bounds.maxLat)
+            if (entry.Value.latitude > bounds.maxLat)
                 oobMaxLat.Add(entry.Value.latitude);
-            //if (entry.Value.latitude < bounds.minLat)
+            if (entry.Value.latitude < bounds.minLat)
                 oobMinLat.Add(entry.Value.latitude);
-            //if (entry.Value.longitude > bounds.maxLon)
+            if (entry.Value.longitude > bounds.maxLon)
                 oobMaxLon.Add(entry.Value.longitude);
-            //if (entry.Value.longitude < bounds.minLon)
+            if (entry.Value.longitude < bounds.minLon)
                 oobMinLon.Add(entry.Value.longitude);
+        }*/
+    }
+    void GetWays(XmlNodeList wayNodes)
+    {
+        foreach (XmlNode wayNode in wayNodes)
+        {
+            OSMWay way = new OSMWay(wayNode);
+            ways.Add(way);
         }
+    }
 
-        actualBounds[0] = oobMaxLat.Max();
-        actualBounds[1] = oobMinLat.Min();
-        actualBounds[2] = oobMaxLon.Max();
-        actualBounds[3] = oobMinLon.Min();
+    void GetBounds()
+    {
+        double minLat = mapNodes[ways[0].childrenIDs[0]].X;
+        double maxLat = mapNodes[ways[0].childrenIDs[0]].X;
+        double minLon = mapNodes[ways[0].childrenIDs[0]].Y;;
+        double maxLon = mapNodes[ways[0].childrenIDs[0]].Y;;
+        foreach (var way in ways)
+        {
+            if (way.isBuilding)
+            {
+                for (int i = 1; i < way.childrenIDs.Count; i++)
+                {
+                    if (mapNodes[way.childrenIDs[i]].latitude < minLat)
+                        minLat = mapNodes[way.childrenIDs[i]].latitude;
+                    if (mapNodes[way.childrenIDs[i]].latitude > maxLat)
+                        maxLat = mapNodes[way.childrenIDs[i]].latitude;
+                    if (mapNodes[way.childrenIDs[i]].longitude < minLon)
+                        minLon = mapNodes[way.childrenIDs[i]].longitude;
+                    if (mapNodes[way.childrenIDs[i]].longitude > maxLon)
+                        maxLon = mapNodes[way.childrenIDs[i]].longitude;
+                }
+            }
+        }
+        actualBounds[0] = minLat;
+        actualBounds[1] = maxLat;
+        actualBounds[2] = minLon;
+        actualBounds[3] = maxLon;
     }
     void SetBounds(XmlNode boundsNode)
     {
@@ -84,7 +114,7 @@ public class MapReader : MonoBehaviour
             if (way.isVisible)
             {
                 Color c = Color.magenta;    //road
-                if (way.isBuilding)
+                if (way.isBoundary)
                 {
                     c = Color.cyan;        //building
                 }
@@ -94,8 +124,8 @@ public class MapReader : MonoBehaviour
                     MapNode p1 = mapNodes[way.childrenIDs[i-1]];
                     MapNode p2 = mapNodes[way.childrenIDs[i]];
 
-                    Vector3 v1 = new Vector3((float)p1.X, 0, (float)p1.Y) - bounds.centre;
-                    Vector3 v2 = new Vector3((float)p2.X, 0, (float)p2.Y) - bounds.centre;
+                    Vector3 v1 = new Vector3((float)p1.X, 50, (float)p1.Y) - bounds.centre;
+                    Vector3 v2 = new Vector3((float)p2.X, 50, (float)p2.Y) - bounds.centre;
                     
                     Debug.DrawLine(v1/10, v2/10, c);
                 }
