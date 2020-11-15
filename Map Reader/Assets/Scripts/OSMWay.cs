@@ -10,6 +10,7 @@ public class OSMWay : OSMBase
     public XmlNodeList childrenNodes;
     public bool isBoundary;
     public bool isBuilding;
+    public bool isRoad = false;
     
     public OSMWay(XmlNode node)
     {
@@ -37,6 +38,11 @@ public class OSMWay : OSMBase
             if (key == "building")
             {
                 isBuilding = GetAttribute<string>("v", tag.Attributes) == "yes";
+            }
+            if (key == "highway")
+            {
+                if (GetAttribute<string>("v", tag.Attributes) != "footway")
+                    isRoad = true;
             }
         }
     }

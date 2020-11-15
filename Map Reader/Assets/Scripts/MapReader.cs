@@ -76,10 +76,10 @@ public class MapReader : MonoBehaviour
 
     void GetBounds()
     {
-        double minLat = mapNodes[ways[0].childrenIDs[0]].X;
-        double maxLat = mapNodes[ways[0].childrenIDs[0]].X;
-        double minLon = mapNodes[ways[0].childrenIDs[0]].Y;;
-        double maxLon = mapNodes[ways[0].childrenIDs[0]].Y;;
+        double minLat = mapNodes[ways[0].childrenIDs[0]].latitude;
+        double maxLat = mapNodes[ways[0].childrenIDs[0]].latitude;
+        double minLon = mapNodes[ways[0].childrenIDs[0]].longitude;
+        double maxLon = mapNodes[ways[0].childrenIDs[0]].longitude;
         foreach (var way in ways)
         {
             if (way.isBuilding)
@@ -97,10 +97,10 @@ public class MapReader : MonoBehaviour
                 }
             }
         }
-        actualBounds[0] = minLat;
-        actualBounds[1] = maxLat;
-        actualBounds[2] = minLon;
-        actualBounds[3] = maxLon;
+        actualBounds[0] = minLat-0.001;
+        actualBounds[1] = maxLat+0.001;
+        actualBounds[2] = minLon-0.001;
+        actualBounds[3] = maxLon+0.001;
     }
     void SetBounds(XmlNode boundsNode)
     {
@@ -119,13 +119,16 @@ public class MapReader : MonoBehaviour
                     c = Color.cyan;        //building
                 }
 
+                if (way.isRoad)
+                    c = Color.green;
+
                 for (int i = 1; i < way.childrenIDs.Count; i++)
                 {
                     MapNode p1 = mapNodes[way.childrenIDs[i-1]];
                     MapNode p2 = mapNodes[way.childrenIDs[i]];
 
-                    Vector3 v1 = new Vector3((float)p1.X, 50, (float)p1.Y) - bounds.centre;
-                    Vector3 v2 = new Vector3((float)p2.X, 50, (float)p2.Y) - bounds.centre;
+                    Vector3 v1 = new Vector3((float)p1.X, 40, (float)p1.Y) - bounds.centre;
+                    Vector3 v2 = new Vector3((float)p2.X, 40, (float)p2.Y) - bounds.centre;
                     
                     Debug.DrawLine(v1/10, v2/10, c);
                 }

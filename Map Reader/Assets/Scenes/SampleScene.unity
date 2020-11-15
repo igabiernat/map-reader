@@ -416,6 +416,7 @@ GameObject:
   - component: {fileID: 1940428273}
   - component: {fileID: 1940428272}
   - component: {fileID: 1940428274}
+  - component: {fileID: 1940428275}
   m_Layer: 0
   m_Name: MapPlaceHolder
   m_TagString: Untagged
@@ -435,7 +436,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f64db0d75c3bed46a4d06742d024d81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mapTxt: map
+  mapTxt: czecho
   meshGenerator: {fileID: 448668606}
   oobMinLat: []
   oobMaxLat: []
@@ -471,3 +472,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildingPrefab: {fileID: 165554, guid: f7b79bbc99e117943ab5fb1dd6330136, type: 3}
   meshCollider: {fileID: 448668609}
+--- !u!114 &1940428275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1940428271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6019f27aa9f14410b3c72a60c3ea30b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  roadMaterial: {fileID: 2100000, guid: 1f554ac1168c1f547b45eceb3dc445b3, type: 2}
+  mc: {fileID: 448668609}

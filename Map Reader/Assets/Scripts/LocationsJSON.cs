@@ -51,7 +51,7 @@ public class LocationsJSON
             }
             locationsJsonString = JsonConvert.SerializeObject(alllocations);
             var postData = new StringContent(locationsJsonString, Encoding.UTF8, "application/json");
-            var response = client.PostAsync("http://192.168.145.177:8080/api/v1/lookup", postData).Result;
+            var response = client.PostAsync("http://192.168.163.129:8080/api/v1/lookup", postData).Result;
             var responseString = response.Content.ReadAsStringAsync().Result;
             ResultList resultList;
             resultList = JsonConvert.DeserializeObject<ResultList>(responseString);

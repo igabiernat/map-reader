@@ -6,10 +6,16 @@
     <e p="C:\Users\rhian\Desktop\map-reader\Map Reader" t="IncludeRecursive">
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
+        <e p="Prefabs" t="Include">
+          <e p="POLYGON city pack" t="Include">
+            <e p="Read_me.txt" t="Include" />
+          </e>
+        </e>
         <e p="Resources" t="Include">
           <e p="agh.txt" t="Include" />
           <e p="bb.txt" t="Include" />
           <e p="bb1.txt" t="Include" />
+          <e p="czecho.txt" t="Include" />
           <e p="gorki.txt" t="Include" />
           <e p="jaworze.txt" t="Include" />
           <e p="kopiec.txt" t="Include" />
@@ -28,6 +34,7 @@
           <e p="OSMBounds.cs" t="Include" />
           <e p="OSMNodeParser.cs" t="Include" />
           <e p="OSMWay.cs" t="Include" />
+          <e p="RoadMaker.cs" t="Include" />
           <e p="TerrainEditor.cs" t="Include" />
           <e p="VertexConnection.cs" t="Include" />
         </e>
