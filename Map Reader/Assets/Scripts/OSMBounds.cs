@@ -94,9 +94,9 @@ public class OSMBounds : OSMBase
 
     private void SetTerrainSize()
     {
-        terrainXsize = (maxX - minX) / MapReader.divider;
-        terrainYsize = (maxY - minY) / MapReader.divider;
-        terrainX = 0 - ((maxX - minX) / (2*MapReader.divider));
-        terrainY = 0 - ((maxY - minY) / (2*MapReader.divider));
+        terrainXsize = (maxX - minX);
+        terrainYsize = (maxY - minY);
+        terrainX = 0 - ((maxX - minX) / 2);
+        terrainY = 0 - ((maxY - minY) / 2);
     }
 }

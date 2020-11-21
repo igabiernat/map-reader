@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ContentModelStore">
     <e p="C:\Users\rhian\AppData\Local\JetBrains\Rider2020.2\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\rhian\AppData\Local\JetBrains\Rider2020.2\resharper-host\Local\Transient\Rider\v202\SolutionCaches\_Map Reader.200556509.00" t="ExcludeRecursive" />
-    <e p="C:\Users\rhian\Desktop\map-reader\Map Reader" t="IncludeRecursive">
+    <e p="C:\Users\rhian\AppData\Local\JetBrains\Rider2020.2\resharper-host\Local\Transient\Rider\v202\SolutionCaches\_Map Reader.930586177.00" t="ExcludeRecursive" />
+    <e p="C:\Users\rhian\Documents\map-reader\Map Reader" t="IncludeRecursive">
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
         <e p="BrokenVector" t="Include">
@@ -23,15 +23,28 @@
           <e p="agh.txt" t="Include" />
           <e p="bb.txt" t="Include" />
           <e p="bb1.txt" t="Include" />
+          <e p="bbcentrum.txt" t="Include" />
+          <e p="centrum.txt" t="Include" />
           <e p="czecho.txt" t="Include" />
+          <e p="duze.txt" t="Include" />
+          <e p="goczalk.txt" t="Include" />
           <e p="gorki.txt" t="Include" />
+          <e p="gorki1.txt" t="Include" />
+          <e p="gory.txt" t="Include" />
           <e p="jaworze.txt" t="Include" />
           <e p="kopiec.txt" t="Include" />
           <e p="kopiec1.txt" t="Include" />
           <e p="map.txt" t="Include" />
+          <e p="polnoc.txt.txt" t="Include" />
+          <e p="srodmiesciebb.txt" t="Include" />
+          <e p="stawy.txt" t="Include" />
+          <e p="zako.txt" t="Include" />
+          <e p="zakopane.txt" t="Include" />
+          <e p="zakopiec.txt" t="Include" />
         </e>
         <e p="Scripts" t="Include">
           <e p="BuildingMaker.cs" t="Include" />
+          <e p="ForestMaker.cs" t="Include" />
           <e p="LocationsJSON.cs" t="Include" />
           <e p="MapNode.cs" t="Include" />
           <e p="MapReader.cs" t="Include" />
@@ -42,10 +55,13 @@
           <e p="OSMBounds.cs" t="Include" />
           <e p="OSMNodeParser.cs" t="Include" />
           <e p="OSMWay.cs" t="Include" />
+          <e p="RiverMaker.cs" t="Include" />
           <e p="RoadMaker.cs" t="Include" />
           <e p="TerrainEditor.cs" t="Include" />
           <e p="TerrainMaker.cs" t="Include" />
+          <e p="TreeMaker.cs" t="Include" />
           <e p="VertexConnection.cs" t="Include" />
+          <e p="WaterMaker.cs" t="Include" />
         </e>
         <e p="SimplePoly - Town Pack" t="Include">
           <e p="Standard Assets" t="Include">

@@ -167,8 +167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9eb91bbf78731d3409871692d78dda52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Xs: []
-  Ys: []
+  groundMaterial: {fileID: 2100000, guid: 98874c033b4ec5e49a9bd3f27bd5fd11, type: 2}
 --- !u!23 &448668607
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -418,6 +417,10 @@ GameObject:
   - component: {fileID: 1940428274}
   - component: {fileID: 1940428275}
   - component: {fileID: 1940428276}
+  - component: {fileID: 1940428277}
+  - component: {fileID: 1940428278}
+  - component: {fileID: 1940428279}
+  - component: {fileID: 1940428280}
   m_Layer: 0
   m_Name: MapPlaceHolder
   m_TagString: Untagged
@@ -437,13 +440,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f64db0d75c3bed46a4d06742d024d81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mapTxt: map
+  mapTxt: stawy
   meshGenerator: {fileID: 448668606}
-  oobMinLat: []
-  oobMaxLat: []
-  oobMinLon: []
-  oobMaxLon: []
-  actualBounds: []
   isReady: 0
 --- !u!4 &1940428273
 Transform:
@@ -501,6 +499,7 @@ MonoBehaviour:
   apartmentsPrefab: {fileID: 146384, guid: 0d41f7c400e70b14784c7dc6996384f2, type: 3}
   chosenPrefab: {fileID: 0}
   meshCollider: {fileID: 448668609}
+  buildingVertices: []
 --- !u!114 &1940428275
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -513,9 +512,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6019f27aa9f14410b3c72a60c3ea30b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roadMaterial: {fileID: 2100000, guid: f7efac6d6d7a343a19528a2733fd9759, type: 2}
+  roadMaterial: {fileID: 2100000, guid: 1f554ac1168c1f547b45eceb3dc445b3, type: 2}
   mc: {fileID: 448668609}
-  ok: []
 --- !u!114 &1940428276
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -528,5 +526,77 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c869a440fea9433dbb7b51a383f88b2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  terrainMaterial: {fileID: 2100000, guid: 17d325bfeb3e79d41860d3e6666361ba, type: 2}
+  terrainMaterial: {fileID: 0}
   mc: {fileID: 448668609}
+--- !u!114 &1940428277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1940428271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5d504f5d7f144fcba5ed6c1345ea517, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mc: {fileID: 448668609}
+  trees:
+  - {fileID: 117604, guid: 9469bb1d3aa88ca40aa4079e96a27f8e, type: 3}
+  - {fileID: 151190, guid: a9cc5585b9634a9449920c03ec6bc243, type: 3}
+  - {fileID: 111494, guid: 62724a8cd2495b14f930b7129c3bc47b, type: 3}
+  - {fileID: 188972, guid: 7641c7e8354e2c44cab6432d9d2c6d1b, type: 3}
+  - {fileID: 182406, guid: a1d34f7914a1d8148a0ce7262f7ba394, type: 3}
+  - {fileID: 115084, guid: 7c5aafe3fe2c6ef4a9150f7f44653760, type: 3}
+  - {fileID: 127550, guid: 87a6cef862ce2cb4a88c5ca5d5af5d2b, type: 3}
+  - {fileID: 168064, guid: fb8ae0828a555f74996970b8d0495f15, type: 3}
+  - {fileID: 116970, guid: 38ade0ba7c293f14a9b1b610879e9390, type: 3}
+  - {fileID: 159322, guid: b1b1573cfe717c04caad3e631288f7e9, type: 3}
+  - {fileID: 188992, guid: 11d469914a0208343b39f04223416f9c, type: 3}
+  - {fileID: 112728, guid: 069e1e44b643edc4fb4a9d4311a78fb7, type: 3}
+  - {fileID: 176282, guid: ac00d368a6864c04791bc85c5567bd51, type: 3}
+  - {fileID: 114672, guid: 98653de49a7044442972e6997c40db16, type: 3}
+  - {fileID: 151792, guid: 1e4e7284c1efd5f4eb702c799353072c, type: 3}
+--- !u!114 &1940428278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1940428271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a20108c6ec8464fb8a4ef4e5b0bbb4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  riverMaterial: {fileID: 2100000, guid: eb0daedd88af7a5439cce90b902e7d56, type: 2}
+  mc: {fileID: 448668609}
+--- !u!114 &1940428279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1940428271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1945b00955f40618003f33ec40fcf3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waterMaterial: {fileID: 2100000, guid: eb0daedd88af7a5439cce90b902e7d56, type: 2}
+  mc: {fileID: 448668609}
+--- !u!114 &1940428280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1940428271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d022c44d9c444d47bdefee26dd50036d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  terrainMaterial: {fileID: 2100000, guid: 25ad040856bc7124f80799817d542c34, type: 2}
+  mc: {fileID: 448668609}
+  trees: []

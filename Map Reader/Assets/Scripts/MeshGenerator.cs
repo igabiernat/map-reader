@@ -14,9 +14,14 @@ public class MeshGenerator : MonoBehaviour
     private Mesh mesh;
     private Vector3[] vertices;
     private int[] triangles;
-    public List<double> Xs = new List<double>();
-    public List<double> Ys = new List<double>();
-    public double[,] elevations;
+    private List<double> Xs = new List<double>();
+    private List<double> Ys = new List<double>();
+    private double[,] elevations;
+    private int optimizer = 50;
+    private double xstep;
+    private double zstep;
+    public Material groundMaterial;
+    private MeshRenderer meshRenderer;
     
     double height;
 
@@ -28,9 +33,12 @@ public class MeshGenerator : MonoBehaviour
     public void OnMapLoaded(OSMBounds bounds)
     {
         mesh = new Mesh();
+        meshRenderer = GetComponent<MeshRenderer>();
         GetComponent<MeshFilter>().mesh = mesh;
-        xSize = (int)Mathf.Floor((float)(bounds.terrainXsize/5));
-        zSize = (int)Mathf.Floor((float)(bounds.terrainYsize/5));
+        xSize = optimizer+1;
+        zSize = optimizer+1;
+        xstep = bounds.terrainXsize / optimizer;
+        zstep = bounds.terrainYsize / optimizer;
         Interpolate(bounds);
         CreateShape(bounds);
         UpdateMesh();
@@ -40,55 +48,15 @@ public class MeshGenerator : MonoBehaviour
     {        
         vertices = new Vector3[(xSize + 1) * (zSize + 1)];
         FindMinMax(elevations);
+        
         for (int i=0, z = 0; z <= zSize; z++)
         {
             for (int x = 0; x <= xSize; x++)
             {
-                vertices[i] = new Vector3((float)bounds.terrainX + 5*x,(float)(elevations[x,z]-minHeight)/(MapReader.divider/2), (float)bounds.terrainY + 5*z);
+                vertices[i] = new Vector3((float)(bounds.terrainX + xstep*x),(float)(elevations[x,z]-minHeight), (float)(bounds.terrainY + zstep*z));
                 i++;
             }
         }
-        /*vertices = new Vector3[(xSize + 1) * (zSize + 1)];
-        for (int i = 0, z = 0; z <= zSize; z++)
-        {
-            for (int x = 0; x <= xSize; x++)
-            {
-                if (x % 2 == 1 && z % 2 != 1)
-                    height = (elevations[(x - 1) / 2, z / 2] + elevations[(x + 1) / 2, z / 2]) / 2;
-                if (x % 2 != 1 && z % 2 == 1)
-                    height = (elevations[x / 2, (z - 1) / 2] + elevations[x / 2, (z + 1) / 2]) / 2;
-                if (x % 2 == 1 && z % 2 == 1)
-                    height = (elevations[(x - 1) / 2, (z - 1) / 2] + elevations[(x + 1) / 2, (z + 1) / 2]) / 2;
-                if (x % 2 != 1 && z % 2 != 1)
-                    height = elevations[x / 2, z / 2];
-                vertices[i] = new Vector3((float) bounds.terrainX + 2.5f * x, (float) (height - 250) / 5,
-                    (float) bounds.terrainY + 2.5f * z);
-                i++;
-            }
-        }*/
-        /*vertices = new Vector3[(xSize + 1) * (zSize*2 + 1)];
-        for (int i=0, z = 0; z <= zSize*2; z++)
-        {
-            for (int x = 0; x <= xSize; x++)
-            {
-                if (z % 2 == 1)
-                    height = (elevations[x, (z - 1) / 2] + elevations[x, (z + 1) / 2])/2;
-                else
-                    height = elevations[x, z / 2];
-                vertices[i] = new Vector3((float)bounds.terrainX + 5f*x,(float)(height-250)/5, (float)bounds.terrainY + 2.5f*z);
-                i++;
-            }
-        }*/
-        /*
-        for (int z = 1; z <= zSize; z=z+2)
-        {
-            for (int x = 0; x <= xSize; x++)
-            {
-                double height = (elevations[x, z - 1] + elevations[x, z + 1])/2;
-                vertices[z*xSize + x] = new Vector3((float)bounds.terrainX + 5*x,(float) (height-250)/MapReader.divider, (float)bounds.terrainY + 5*z);
-            }
-        }
-        */
 
         triangles = new int[xSize* zSize * 6];
         int vert = 0;
@@ -138,14 +106,14 @@ public class MeshGenerator : MonoBehaviour
 
         double deltaX = maxX - minX;
         double deltaY = maxY - minY;
-        double stepX = deltaX / bounds.terrainXsize;
-        double stepY = deltaY / bounds.terrainYsize;
+        double stepX = deltaX / optimizer;
+        double stepY = deltaY / optimizer;
         
-        for (int x = 0; x <= Math.Ceiling(bounds.terrainXsize); x=x+5)
+        for (int x = 0; x <= optimizer+1; x++)
         {
             Xs.Add(minX + stepX*x);
         }
-        for (int y = 0; y <= Math.Ceiling(bounds.terrainYsize); y=y+5)
+        for (int y = 0; y <= optimizer+1; y++)
         {
             Ys.Add(minY + stepY*y);
         }
@@ -156,32 +124,6 @@ public class MeshGenerator : MonoBehaviour
     void Interpolate(OSMBounds bounds)
     {
         elevations = GetElevation(bounds);
-        //allElevations = new double[Xs.Count,Ys.Count];
-        /*for (int y = 0; y < Ys.Count; y++)
-        {
-            for (int x = 0; x < Xs.Count; x++)
-            {
-                allElevations[x, y] = 0;
-            }
-        }
-
-        for (int y = 0; y < (Ys.Count - (Ys.Count % 5)); y++)
-        {
-            for (int x = 0; x < (Xs.Count - (Xs.Count % 5)); x++)
-            {
-                if (x % 5 == 0 && y % 5 == 0)
-                {
-                    allElevations[x, y] = elevations[x / 5, y / 5];
-                }
-                else
-                {
-                    double previousValue = elevations[(x - (x % 5)) / 5, (y - (y % 5)) / 5];
-                    double nextValue = elevations[(x + (5 - (x % 5))) / 5, (y + (5 - (y % 5))) / 5];
-                    double delta = (nextValue - previousValue) / 5;
-                    allElevations[x, y] = previousValue + (x % 5 * delta);
-                }
-            }
-        }*/
     }
     void UpdateMesh()
     {
@@ -191,6 +133,7 @@ public class MeshGenerator : MonoBehaviour
         MeshSmoothing.LaplacianFilter(mesh, 2);
         mesh.RecalculateNormals();
         GetComponent<MeshCollider>().sharedMesh = mesh;
+        meshRenderer.material = groundMaterial;
     }
 
 }

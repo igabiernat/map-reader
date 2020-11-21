@@ -12,6 +12,7 @@ public class MapNode : OSMBase
     public double longitude;
     public double X;
     public double Y;
+    public bool isTree;
 
     public static implicit operator Vector3(MapNode node)
     {
@@ -27,7 +28,13 @@ public class MapNode : OSMBase
         X = MercatorProjection.lonToX(longitude);
         Y = MercatorProjection.latToY(latitude);
         
+        XmlNodeList tags = node.SelectNodes("tag");
+        foreach (XmlNode tag in tags)
+        {
+            string key = GetAttribute<string>("k",tag.Attributes);
+            if (key == "natural")
+                isTree = true;
+        }
     }
-
-
+    
 }

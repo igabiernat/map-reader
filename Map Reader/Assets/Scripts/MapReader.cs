@@ -8,18 +8,14 @@ using System.Xml;
 public class MapReader : MonoBehaviour
 {
     public string mapTxt;
-    public static int divider = 10;
+    //public static int divider = 10;
     public MeshGenerator meshGenerator;
     
-    public List<double> oobMinLat;
-    public List<double> oobMaxLat;
-    public List<double> oobMinLon;
-    public List<double> oobMaxLon;
-
-    public double[] actualBounds;
+    private double[] actualBounds;
 
     public Dictionary<long, MapNode> mapNodes;
     public List<OSMWay> ways;
+    public List<MapNode> trees;
 
     public OSMBounds bounds;
 
@@ -30,6 +26,7 @@ public class MapReader : MonoBehaviour
         meshGenerator = meshGenerator.GetComponent<MeshGenerator>();
         mapNodes = new Dictionary<long, MapNode>();
         ways = new List<OSMWay>();
+        trees = new List<MapNode>();
         var mapLoaded = Resources.Load<TextAsset>(mapTxt);
         XmlDocument mapXml = new XmlDocument();
         actualBounds = new double[4];
@@ -51,20 +48,11 @@ public class MapReader : MonoBehaviour
         {
             MapNode node = new MapNode(mapNode, bounds);
             mapNodes[node.id] = node;
+            if(node.isTree)
+                trees.Add(node);
         }
-
-        /*foreach (KeyValuePair<long, MapNode> entry in mapNodes)
-        {
-            if (entry.Value.latitude > bounds.maxLat)
-                oobMaxLat.Add(entry.Value.latitude);
-            if (entry.Value.latitude < bounds.minLat)
-                oobMinLat.Add(entry.Value.latitude);
-            if (entry.Value.longitude > bounds.maxLon)
-                oobMaxLon.Add(entry.Value.longitude);
-            if (entry.Value.longitude < bounds.minLon)
-                oobMinLon.Add(entry.Value.longitude);
-        }*/
     }
+    
     void GetWays(XmlNodeList wayNodes)
     {
         foreach (XmlNode wayNode in wayNodes)
@@ -82,7 +70,7 @@ public class MapReader : MonoBehaviour
         double maxLon = mapNodes[ways[0].childrenIDs[0]].longitude;
         foreach (var way in ways)
         {
-            if (way.isBuilding)
+            if (way.typeOfBuilding!=null)
             {
                 for (int i = 1; i < way.childrenIDs.Count; i++)
                 {
@@ -97,10 +85,11 @@ public class MapReader : MonoBehaviour
                 }
             }
         }
-        actualBounds[0] = minLat-0.001;
-        actualBounds[1] = maxLat+0.001;
-        actualBounds[2] = minLon-0.001;
-        actualBounds[3] = maxLon+0.001;
+
+        actualBounds[0] = minLat-0.0002;
+        actualBounds[1] = maxLat+0.0002;
+        actualBounds[2] = minLon-0.0002;
+        actualBounds[3] = maxLon+0.0002;
     }
     void SetBounds(XmlNode boundsNode)
     {
@@ -131,7 +120,7 @@ public class MapReader : MonoBehaviour
                     Vector3 v1 = new Vector3((float)p1.X, 40, (float)p1.Y) - bounds.centre;
                     Vector3 v2 = new Vector3((float)p2.X, 40, (float)p2.Y) - bounds.centre;
                     
-                    Debug.DrawLine(v1/10, v2/10, c);
+                    Debug.DrawLine(v1, v2, c);
                 }
             }
         }

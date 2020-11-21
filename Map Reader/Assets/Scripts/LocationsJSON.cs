@@ -51,7 +51,7 @@ public class LocationsJSON
             }
             locationsJsonString = JsonConvert.SerializeObject(alllocations);
             var postData = new StringContent(locationsJsonString, Encoding.UTF8, "application/json");
-            var response = client.PostAsync("http://172.18.17.177:8080/api/v1/lookup", postData).Result;
+            var response = client.PostAsync("http://172.18.72.17:8080/api/v1/lookup", postData).Result;
             var responseString = response.Content.ReadAsStringAsync().Result;
             ResultList resultList;
             resultList = JsonConvert.DeserializeObject<ResultList>(responseString);
@@ -78,7 +78,7 @@ public class LocationsJSON
             }
             locationsJsonString = JsonConvert.SerializeObject(alllocations);
             var postData = new StringContent(locationsJsonString, Encoding.UTF8, "application/json");
-            var response = client.PostAsync("http://172.18.17.177:8080/api/v1/lookup", postData).Result;
+            var response = client.PostAsync("http://172.18.105.193:8080/api/v1/lookup", postData).Result;
             var responseString = response.Content.ReadAsStringAsync().Result;
             ResultList resultList;
             resultList = JsonConvert.DeserializeObject<ResultList>(responseString);
