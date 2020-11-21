@@ -316,7 +316,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705507993}
   m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalPosition: {x: 0, y: 30.7, z: -10.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -417,6 +417,7 @@ GameObject:
   - component: {fileID: 1940428272}
   - component: {fileID: 1940428274}
   - component: {fileID: 1940428275}
+  - component: {fileID: 1940428276}
   m_Layer: 0
   m_Name: MapPlaceHolder
   m_TagString: Untagged
@@ -436,7 +437,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f64db0d75c3bed46a4d06742d024d81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mapTxt: czecho
+  mapTxt: map
   meshGenerator: {fileID: 448668606}
   oobMinLat: []
   oobMaxLat: []
@@ -470,7 +471,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ca60fe825784128aeb731f7cec13752, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildingPrefab: {fileID: 165554, guid: f7b79bbc99e117943ab5fb1dd6330136, type: 3}
+  regularBuildingsPrefabs:
+  - {fileID: 146160, guid: 376c64c4248da1c478df047404ec6663, type: 3}
+  - {fileID: 100986, guid: d626666846aaa4740be705007a456295, type: 3}
+  - {fileID: 155844, guid: 4de73b6418e85f643bcd3c2edb0dfe0c, type: 3}
+  - {fileID: 160400, guid: 30e2a587c4604ce43802c7a63b6638ed, type: 3}
+  - {fileID: 165554, guid: f7b79bbc99e117943ab5fb1dd6330136, type: 3}
+  - {fileID: 113294, guid: 85c5ecd5a01f542499944cbfe9dd1cf8, type: 3}
+  - {fileID: 148152, guid: c578b4309ba7d374a81ecb4ead9452b4, type: 3}
+  - {fileID: 136468, guid: 73121aa02ef2a1b42915f5842503a4fc, type: 3}
+  higherBuildingsPrefabs:
+  - {fileID: 151952, guid: 3247a876b9df76e4187d8ddffa5028cb, type: 3}
+  - {fileID: 146384, guid: 0d41f7c400e70b14784c7dc6996384f2, type: 3}
+  - {fileID: 142486, guid: fa1f7e3bec326074c8e0ba873be41681, type: 3}
+  - {fileID: 181362, guid: 7af3e402376047a46842073f130d347e, type: 3}
+  - {fileID: 162376, guid: edfc85d2272c60b49beb757027f79980, type: 3}
+  - {fileID: 197962, guid: 6d7985f8534d19e4b8c5bc52a92a075a, type: 3}
+  regularBuildingPrefab: {fileID: 0}
+  schoolPrefab: {fileID: 166816, guid: 219b2a76565a01240a8f893539b9309a, type: 3}
+  housePrefab: {fileID: 1000013289884710, guid: f0cf8146888c5ba4ebd406d6a76baeb7,
+    type: 3}
+  ospPrefab: {fileID: 129442, guid: e3e68252ae8afc94a82589696a7c236c, type: 3}
+  policePrefab: {fileID: 165264, guid: d8772bbb1824d4648bb0c706baaceb74, type: 3}
+  shopPrefab: {fileID: 135208, guid: a9b79d749ced56c4e8b559a4f12d0a69, type: 3}
+  bankPrefab: {fileID: 119446, guid: 6a03abf06fc3f154abc371fa4e38f7d1, type: 3}
+  churchPrefab: {fileID: 0}
+  gasStationPrefab: {fileID: 178132, guid: a03a9df0edb623a4095e3b307f481082, type: 3}
+  hotelPrefab: {fileID: 117022, guid: 7ad2e20841a11954f8a84f88e5175cf2, type: 3}
+  apartmentsPrefab: {fileID: 146384, guid: 0d41f7c400e70b14784c7dc6996384f2, type: 3}
+  chosenPrefab: {fileID: 0}
   meshCollider: {fileID: 448668609}
 --- !u!114 &1940428275
 MonoBehaviour:
@@ -484,5 +513,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6019f27aa9f14410b3c72a60c3ea30b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roadMaterial: {fileID: 2100000, guid: 1f554ac1168c1f547b45eceb3dc445b3, type: 2}
+  roadMaterial: {fileID: 2100000, guid: f7efac6d6d7a343a19528a2733fd9759, type: 2}
+  mc: {fileID: 448668609}
+  ok: []
+--- !u!114 &1940428276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1940428271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c869a440fea9433dbb7b51a383f88b2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  terrainMaterial: {fileID: 2100000, guid: 17d325bfeb3e79d41860d3e6666361ba, type: 2}
   mc: {fileID: 448668609}

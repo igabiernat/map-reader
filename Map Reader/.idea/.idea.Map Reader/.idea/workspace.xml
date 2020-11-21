@@ -20,16 +20,36 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5559dfd8-9f46-4923-be24-d8eddf24e3c9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/RoadMaker.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/RoadMaker.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/TerrainMaker.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/TerrainMaker.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Map Reader/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Map Reader/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Map Reader/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Map Reader/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Map Reader/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Map Reader/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Road.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Road.mat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/BuildingMaker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BuildingMaker.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/LocationsJSON.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/LocationsJSON.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/MapReader.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MapReader.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/OSMWay.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/OSMWay.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/RoadMaker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/RoadMaker.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SimplePoly - Town Pack/Prefabs/Buildings/sptp_building_01.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SimplePoly - Town Pack/Prefabs/Buildings/sptp_building_01.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SimplePoly - Town Pack/Prefabs/Buildings/sptp_building_03.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SimplePoly - Town Pack/Prefabs/Buildings/sptp_building_03.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SimplePoly - Town Pack/Prefabs/Buildings/sptp_building_04.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SimplePoly - Town Pack/Prefabs/Buildings/sptp_building_04.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SimplePoly - Town Pack/Prefabs/Buildings/sptp_building_05.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SimplePoly - Town Pack/Prefabs/Buildings/sptp_building_05.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SimplePoly - Town Pack/Prefabs/Buildings/sptp_building_06.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SimplePoly - Town Pack/Prefabs/Buildings/sptp_building_06.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SimplePoly - Town Pack/Prefabs/Buildings/sptp_building_07.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SimplePoly - Town Pack/Prefabs/Buildings/sptp_building_07.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SimplePoly - Town Pack/Prefabs/Buildings/sptp_building_08.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SimplePoly - Town Pack/Prefabs/Buildings/sptp_building_08.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SimplePoly - Town Pack/Prefabs/Buildings/sptp_building_10.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SimplePoly - Town Pack/Prefabs/Buildings/sptp_building_10.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SimplePoly - Town Pack/Prefabs/Buildings/sptp_building_11.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SimplePoly - Town Pack/Prefabs/Buildings/sptp_building_11.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SimplePoly - Town Pack/Prefabs/Buildings/sptp_building_12.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SimplePoly - Town Pack/Prefabs/Buildings/sptp_building_12.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SimplePoly - Town Pack/Prefabs/Buildings/sptp_building_15.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SimplePoly - Town Pack/Prefabs/Buildings/sptp_building_15.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SimplePoly - Town Pack/Prefabs/Buildings/sptp_building_16.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SimplePoly - Town Pack/Prefabs/Buildings/sptp_building_16.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SimplePoly - Town Pack/Prefabs/Buildings/sptp_building_17.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SimplePoly - Town Pack/Prefabs/Buildings/sptp_building_17.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SimplePoly - Town Pack/Prefabs/Buildings/sptp_building_24.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SimplePoly - Town Pack/Prefabs/Buildings/sptp_building_24.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SimplePoly - Town Pack/Prefabs/Buildings/sptp_building_31.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SimplePoly - Town Pack/Prefabs/Buildings/sptp_building_31.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SimplePoly - Town Pack/Prefabs/Buildings/sptp_building_32.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SimplePoly - Town Pack/Prefabs/Buildings/sptp_building_32.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SimplePoly - Town Pack/Prefabs/Buildings/sptp_building_33.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SimplePoly - Town Pack/Prefabs/Buildings/sptp_building_33.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,12 +82,13 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/MeshHeight.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/MeshGenerator.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/OSMBounds.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/OSMWay.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/MapReader.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/LocationsJSON.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RoadMaker2.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/BuildingMaker.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/OSMWay.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/MapReader.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/TerrainMaker.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RoadMaker.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/LocationsJSON.cs" />
       </list>
     </option>
   </component>
@@ -139,6 +160,9 @@
       <workItem from="1605437012219" duration="18288000" />
       <workItem from="1605459855226" duration="454000" />
       <workItem from="1605461776301" duration="11907000" />
+      <workItem from="1605536107445" duration="13405000" />
+      <workItem from="1605622088272" duration="3900000" />
+      <workItem from="1605631691227" duration="5456000" />
     </task>
     <servers />
   </component>
@@ -171,90 +195,90 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1601049210200" />
-    <state width="466" height="464" key="DebuggerActiveHint" timestamp="1605470499644">
+    <state width="466" height="464" key="DebuggerActiveHint" timestamp="1605625494118">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="466" height="464" key="DebuggerActiveHint/0.0.1536.824@0.0.1536.824" timestamp="1605470499644" />
-    <state width="1493" height="29" key="GridCell.Tab.0.bottom" timestamp="1605474379545">
+    <state width="466" height="464" key="DebuggerActiveHint/0.0.1536.824@0.0.1536.824" timestamp="1605625494118" />
+    <state width="1493" height="29" key="GridCell.Tab.0.bottom" timestamp="1605637538058">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="154" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1601055607471" />
-    <state width="1493" height="29" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1605474379545" />
-    <state width="1493" height="29" key="GridCell.Tab.0.center" timestamp="1605474379545">
+    <state width="1493" height="29" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1605637538058" />
+    <state width="1493" height="29" key="GridCell.Tab.0.center" timestamp="1605637538058">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="154" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1601055607471" />
-    <state width="1493" height="29" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1605474379545" />
-    <state width="1493" height="29" key="GridCell.Tab.0.left" timestamp="1605474379545">
+    <state width="1493" height="29" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1605637538058" />
+    <state width="1493" height="29" key="GridCell.Tab.0.left" timestamp="1605637538058">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="154" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1601055607470" />
-    <state width="1493" height="29" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1605474379545" />
-    <state width="1493" height="29" key="GridCell.Tab.0.right" timestamp="1605474379545">
+    <state width="1493" height="29" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1605637538058" />
+    <state width="1493" height="29" key="GridCell.Tab.0.right" timestamp="1605637538058">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="154" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1601055607471" />
-    <state width="1493" height="29" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1605474379545" />
-    <state width="1493" height="29" key="GridCell.Tab.1.bottom" timestamp="1605474379545">
+    <state width="1493" height="29" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1605637538058" />
+    <state width="1493" height="29" key="GridCell.Tab.1.bottom" timestamp="1605637538058">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="154" key="GridCell.Tab.1.bottom/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1601055607472" />
-    <state width="1493" height="29" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1605474379545" />
-    <state width="1493" height="29" key="GridCell.Tab.1.center" timestamp="1605474379545">
+    <state width="1493" height="29" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1605637538058" />
+    <state width="1493" height="29" key="GridCell.Tab.1.center" timestamp="1605637538058">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="154" key="GridCell.Tab.1.center/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1601055607472" />
-    <state width="1493" height="29" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1605474379545" />
-    <state width="1493" height="29" key="GridCell.Tab.1.left" timestamp="1605474379545">
+    <state width="1493" height="29" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1605637538058" />
+    <state width="1493" height="29" key="GridCell.Tab.1.left" timestamp="1605637538058">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="154" key="GridCell.Tab.1.left/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1601055607471" />
-    <state width="1493" height="29" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1605474379545" />
-    <state width="1493" height="29" key="GridCell.Tab.1.right" timestamp="1605474379545">
+    <state width="1493" height="29" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1605637538058" />
+    <state width="1493" height="29" key="GridCell.Tab.1.right" timestamp="1605637538058">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="154" key="GridCell.Tab.1.right/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1601055607472" />
-    <state width="1493" height="29" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1605474379545" />
-    <state width="1493" height="29" key="GridCell.Tab.2.bottom" timestamp="1605474379545">
+    <state width="1493" height="29" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1605637538058" />
+    <state width="1493" height="29" key="GridCell.Tab.2.bottom" timestamp="1605637538058">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="154" key="GridCell.Tab.2.bottom/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1601055607473" />
-    <state width="1493" height="29" key="GridCell.Tab.2.bottom/0.0.1536.824@0.0.1536.824" timestamp="1605474379545" />
-    <state width="1493" height="29" key="GridCell.Tab.2.center" timestamp="1605474379545">
+    <state width="1493" height="29" key="GridCell.Tab.2.bottom/0.0.1536.824@0.0.1536.824" timestamp="1605637538058" />
+    <state width="1493" height="29" key="GridCell.Tab.2.center" timestamp="1605637538058">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="154" key="GridCell.Tab.2.center/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1601055607472" />
-    <state width="1493" height="29" key="GridCell.Tab.2.center/0.0.1536.824@0.0.1536.824" timestamp="1605474379545" />
-    <state width="1493" height="29" key="GridCell.Tab.2.left" timestamp="1605474379545">
+    <state width="1493" height="29" key="GridCell.Tab.2.center/0.0.1536.824@0.0.1536.824" timestamp="1605637538058" />
+    <state width="1493" height="29" key="GridCell.Tab.2.left" timestamp="1605637538058">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="154" key="GridCell.Tab.2.left/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1601055607472" />
-    <state width="1493" height="29" key="GridCell.Tab.2.left/0.0.1536.824@0.0.1536.824" timestamp="1605474379545" />
-    <state width="1493" height="29" key="GridCell.Tab.2.right" timestamp="1605474379545">
+    <state width="1493" height="29" key="GridCell.Tab.2.left/0.0.1536.824@0.0.1536.824" timestamp="1605637538058" />
+    <state width="1493" height="29" key="GridCell.Tab.2.right" timestamp="1605637538058">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="154" key="GridCell.Tab.2.right/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1601055607473" />
-    <state width="1493" height="29" key="GridCell.Tab.2.right/0.0.1536.824@0.0.1536.824" timestamp="1605474379545" />
-    <state width="1493" height="29" key="GridCell.Tab.3.bottom" timestamp="1605474379545">
+    <state width="1493" height="29" key="GridCell.Tab.2.right/0.0.1536.824@0.0.1536.824" timestamp="1605637538058" />
+    <state width="1493" height="29" key="GridCell.Tab.3.bottom" timestamp="1605637538058">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="154" key="GridCell.Tab.3.bottom/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1601055607474" />
-    <state width="1493" height="29" key="GridCell.Tab.3.bottom/0.0.1536.824@0.0.1536.824" timestamp="1605474379545" />
-    <state width="1493" height="29" key="GridCell.Tab.3.center" timestamp="1605474379545">
+    <state width="1493" height="29" key="GridCell.Tab.3.bottom/0.0.1536.824@0.0.1536.824" timestamp="1605637538058" />
+    <state width="1493" height="29" key="GridCell.Tab.3.center" timestamp="1605637538058">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="154" key="GridCell.Tab.3.center/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1601055607473" />
-    <state width="1493" height="29" key="GridCell.Tab.3.center/0.0.1536.824@0.0.1536.824" timestamp="1605474379545" />
-    <state width="1493" height="29" key="GridCell.Tab.3.left" timestamp="1605474379545">
+    <state width="1493" height="29" key="GridCell.Tab.3.center/0.0.1536.824@0.0.1536.824" timestamp="1605637538058" />
+    <state width="1493" height="29" key="GridCell.Tab.3.left" timestamp="1605637538058">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="154" key="GridCell.Tab.3.left/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1601055607473" />
-    <state width="1493" height="29" key="GridCell.Tab.3.left/0.0.1536.824@0.0.1536.824" timestamp="1605474379545" />
-    <state width="1493" height="29" key="GridCell.Tab.3.right" timestamp="1605474379545">
+    <state width="1493" height="29" key="GridCell.Tab.3.left/0.0.1536.824@0.0.1536.824" timestamp="1605637538058" />
+    <state width="1493" height="29" key="GridCell.Tab.3.right" timestamp="1605637538058">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="154" key="GridCell.Tab.3.right/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1601055607474" />
-    <state width="1493" height="29" key="GridCell.Tab.3.right/0.0.1536.824@0.0.1536.824" timestamp="1605474379545" />
+    <state width="1493" height="29" key="GridCell.Tab.3.right/0.0.1536.824@0.0.1536.824" timestamp="1605637538058" />
     <state x="277" y="57" key="SettingsEditor" timestamp="1601047621064">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -267,5 +291,24 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="775" height="419" key="XDebugger.FullValuePopup/0.0.1536.824@0.0.1536.824" timestamp="1604492828047" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/TerrainMaker.cs</url>
+          <line>77</line>
+          <properties documentPath="C:\Users\rhian\Desktop\map-reader\Map Reader\Assets\Scripts\TerrainMaker.cs" initialLine="77">
+            <startOffsets>
+              <option value="3176" />
+            </startOffsets>
+            <endOffsets>
+              <option value="3177" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

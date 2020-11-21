@@ -10,7 +10,11 @@ public class OSMWay : OSMBase
     public XmlNodeList childrenNodes;
     public bool isBoundary;
     public bool isBuilding;
+    public bool isFootway = false;
     public bool isRoad = false;
+    public int floors = 1;
+    public string typeOfBuilding;
+    public bool isTerrain;
     
     public OSMWay(XmlNode node)
     {
@@ -35,15 +39,45 @@ public class OSMWay : OSMBase
         foreach (XmlNode tag in tags)
         {
             string key = GetAttribute<string>("k",tag.Attributes);
-            if (key == "building")
+            if (key == "building:levels")
             {
-                isBuilding = GetAttribute<string>("v", tag.Attributes) == "yes";
+                floors = Int32.Parse(GetAttribute<string>("v", tag.Attributes));
             }
-            if (key == "highway")
+            else if (key == "building")
             {
+                typeOfBuilding = GetAttribute<string>("v", tag.Attributes);
+                isBuilding = true;
+            }
+            else if (key == "highway")
+            {
+                isRoad = true;
                 if (GetAttribute<string>("v", tag.Attributes) != "footway")
-                    isRoad = true;
+                    isFootway = false;
+                else
+                    isFootway = true;
             }
+            else if (key == "amenity")
+            {
+                typeOfBuilding = GetAttribute<string>("v", tag.Attributes);
+                isBuilding = true;
+                if(typeOfBuilding=="school")
+                    isBuilding = false;
+                break;
+            }
+            else if (key == "shop")
+            {
+                typeOfBuilding = "shop";
+                isBuilding = true;
+                break;
+            }
+            else if (key == "landuse")
+            {
+                isTerrain = true;
+            }
+            /*if (key == "building:levels")
+            {
+                floors = Int32.Parse(GetAttribute<string>("v", tag.Attributes));
+            }*/
         }
     }
 }

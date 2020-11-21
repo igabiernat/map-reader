@@ -6,6 +6,14 @@
     <e p="C:\Users\rhian\Desktop\map-reader\Map Reader" t="IncludeRecursive">
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
+        <e p="BrokenVector" t="Include">
+          <e p="LowPolyTreePack" t="Include">
+            <e p="ReadMe.txt" t="Include" />
+          </e>
+        </e>
+        <e p="Low Poly Buildings Lite" t="Include">
+          <e p="ReadMe.txt" t="Include" />
+        </e>
         <e p="Prefabs" t="Include">
           <e p="POLYGON city pack" t="Include">
             <e p="Read_me.txt" t="Include" />
@@ -36,6 +44,7 @@
           <e p="OSMWay.cs" t="Include" />
           <e p="RoadMaker.cs" t="Include" />
           <e p="TerrainEditor.cs" t="Include" />
+          <e p="TerrainMaker.cs" t="Include" />
           <e p="VertexConnection.cs" t="Include" />
         </e>
         <e p="SimplePoly - Town Pack" t="Include">

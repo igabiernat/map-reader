@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.Text.RegularExpressions;
 using UnityEngine;
 
 class RoadMaker : MonoBehaviour
@@ -9,6 +8,7 @@ class RoadMaker : MonoBehaviour
     public MeshCollider mc;
     private MapReader map;
     public List<Vector3> ok  = new List<Vector3>();
+    private float roadWidth;
     
     IEnumerator Start()
     {
@@ -24,6 +24,11 @@ class RoadMaker : MonoBehaviour
         {
             if (way.isRoad)
             {
+                if (way.isFootway)
+                    roadWidth = 0.1f;
+                else
+                    roadWidth = 0.5f;
+                
                 GameObject go = new GameObject();
                 
                 Vector3 localOrigin = Vector3.zero;
@@ -31,7 +36,7 @@ class RoadMaker : MonoBehaviour
                 {
                     localOrigin += map.mapNodes[way.childrenIDs[i]];
                 }
-
+                
                 localOrigin /= way.childrenIDs.Count;
                 //localOrigin -= map.bounds.centre;
 
@@ -51,7 +56,6 @@ class RoadMaker : MonoBehaviour
                     MapNode p1 = map.mapNodes[way.childrenIDs[i - 1]];
                     MapNode p2 = map.mapNodes[way.childrenIDs[i]];
 
-                    
                     float x1 = (float) (p1.X - localOrigin.x) / MapReader.divider;
                     float z1 = (float) (p1.Y - localOrigin.z) / MapReader.divider;
                     float x2 = (float) (p2.X - localOrigin.x) / MapReader.divider;
@@ -59,6 +63,48 @@ class RoadMaker : MonoBehaviour
                     
                     Vector3 n1 = new Vector3(x1,0,z1);
                     Vector3 n2 = new Vector3(x2,0,z2);
+
+                    if (vectors.Count > 2)
+                    {
+                        Vector3 difffirst = (n2 - n1).normalized;
+                        var crossfirst = Vector3.Cross(difffirst, Vector3.up) * roadWidth;
+
+                        Vector3 v1first = n1 + crossfirst;
+                        Vector3 v2first = n1 - crossfirst;
+
+                        v1first.y = GetHeight(localOrigin.x - map.bounds.centre.x + v1first.x,
+                            localOrigin.z - map.bounds.centre.z + v1first.z);
+                        v2first.y = GetHeight(localOrigin.x - map.bounds.centre.x + v2first.x,
+                            localOrigin.z - map.bounds.centre.z + v2first.z);
+
+                        Vector3 previousv3 = vectors[vectors.Count - 2];
+                        Vector3 previousv4 = vectors[vectors.Count - 1];
+
+                        vectors.Add(previousv3);
+                        vectors.Add(previousv4);
+                        vectors.Add(v1first);
+                        vectors.Add(v2first);
+
+                        uvs.Add(new Vector2(0, 0));
+                        uvs.Add(new Vector2(1, 0));
+                        uvs.Add(new Vector2(0, 1));
+                        uvs.Add(new Vector2(1, 1));
+
+                        int idx1f, idx2f, idx3f, idx4f;
+                        idx4f = vectors.Count - 1;
+                        idx3f = vectors.Count - 2;
+                        idx2f = vectors.Count - 3;
+                        idx1f = vectors.Count - 4;
+
+                        // first triangle v1, v3, v2
+                        indices.Add(idx1f);
+                        indices.Add(idx3f);
+                        indices.Add(idx2f);
+
+                        indices.Add(idx3f);
+                        indices.Add(idx4f);
+                        indices.Add(idx2f);
+                    }
 
                     float dist = Vector3.Distance(n1, n2);
                     /*int additionalvertices = 100;
@@ -79,7 +125,7 @@ class RoadMaker : MonoBehaviour
         
                         // https://en.wikipedia.org/wiki/Lane
                         // According to the article, it's 3.7m in Canada
-                        var cross = Vector3.Cross(diff, Vector3.up) * 0.5f;
+                        var cross = Vector3.Cross(diff, Vector3.up) * roadWidth;
         
                         // Create points that represent the width of the road
                         Vector3 v1 = s1 + cross;
@@ -101,11 +147,6 @@ class RoadMaker : MonoBehaviour
                         uvs.Add(new Vector2(1, 0));
                         uvs.Add(new Vector2(0, 1));
                         uvs.Add(new Vector2(1, 1));
-        
-                        // normals.Add(Vector3.up);
-                        // normals.Add(Vector3.up);
-                        // normals.Add(Vector3.up);
-                        // normals.Add(Vector3.up);
         
                         int idx1, idx2, idx3, idx4;
                         idx4 = vectors.Count - 1;
@@ -176,12 +217,13 @@ class RoadMaker : MonoBehaviour
                     indices.Add(idx2);*/
 
 
-                mesh.Clear();
+                //mesh.Clear();
                 mesh.vertices = vectors.ToArray();
-                //mf.mesh.normals = normals.ToArray();
+                mesh.normals = normals.ToArray();
                 mesh.triangles = indices.ToArray();
                 mesh.uv = uvs.ToArray();
                 mesh.RecalculateNormals();
+                mr.material = roadMaterial;
             }
         }
     }
@@ -189,11 +231,13 @@ class RoadMaker : MonoBehaviour
     {
         float height = 0;
         RaycastHit hit;
-        Ray ray = new Ray(new Vector3(x/10,MeshGenerator.maxHeight+5,z/10),Vector3.down );
-        if (mc.Raycast(ray, out hit, 2.0f * (MeshGenerator.maxHeight+5)))
+        Ray ray = new Ray(new Vector3(x/10,MeshGenerator.maxHeight,z/10),Vector3.down );
+        if (mc.Raycast(ray, out hit, Mathf.Infinity))
         {
             height = hit.point.y;
+            Debug.Log(height);
         }
-        return(height+0.05f);
+        //Debug.DrawRay(new Vector3(x/10,height+0.01f, z/10),Vector3.up, Color.blue ,100f);
+        return(height+0.01f);
     }
 }

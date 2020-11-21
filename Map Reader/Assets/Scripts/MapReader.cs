@@ -118,9 +118,10 @@ public class MapReader : MonoBehaviour
                 {
                     c = Color.cyan;        //building
                 }
-
                 if (way.isRoad)
                     c = Color.green;
+                if (way.isTerrain)
+                    c = Color.red;
 
                 for (int i = 1; i < way.childrenIDs.Count; i++)
                 {

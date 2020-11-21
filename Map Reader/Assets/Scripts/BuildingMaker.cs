@@ -4,17 +4,36 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
 using UnityEngine;
+using Random = System.Random;
 
 public class BuildingMaker : MonoBehaviour
 {
     private MapReader map;
-    public GameObject buildingPrefab;
+    public GameObject[] regularBuildingsPrefabs;
+    public GameObject[] higherBuildingsPrefabs;
+    public GameObject regularBuildingPrefab;
+    public GameObject schoolPrefab;
+    public GameObject housePrefab;
+    public GameObject ospPrefab;
+    public GameObject policePrefab;
+    public GameObject shopPrefab;
+    public GameObject bankPrefab;
+    public GameObject churchPrefab;
+    public GameObject gasStationPrefab;
+    public GameObject hotelPrefab;
+    public GameObject apartmentsPrefab;
+
+    public GameObject chosenPrefab;
+    
     public MeshCollider meshCollider;
     private float[] distances;
     private Vector3[] sections;
+    private float floorHeight;
+    Random rnd = new Random();
 
     IEnumerator Start()
     {
+        floorHeight = 3.0f;
         map = GetComponent<MapReader>();
         while (!map.isReady)
             yield return null;
@@ -25,7 +44,12 @@ public class BuildingMaker : MonoBehaviour
                 MapNode firstNode = map.mapNodes[way.childrenIDs[0]];    //first point
                 MapNode secondNode = map.mapNodes[way.childrenIDs[1]]; //second point
                 Vector3 sum = Vector3.zero;
-                
+
+                ChoosePrefab(way);
+                if (chosenPrefab == null) 
+                    continue;
+                chosenPrefab.transform.localScale = new Vector3(0.12f,0.12f,0.12f);
+
                 float minBuildingHeight = GetHeight((float) (firstNode.X- map.bounds.centre.x) / MapReader.divider, (float) (firstNode.Y- map.bounds.centre.z) / MapReader.divider);
                 distances = new float[way.childrenIDs.Count-1];
                 sections = new Vector3[way.childrenIDs.Count-1];
@@ -194,9 +218,9 @@ public class BuildingMaker : MonoBehaviour
                     rot = v;
                 }
 
-                GameObject go = Instantiate(buildingPrefab, centre, Quaternion.LookRotation(rot,Vector3.up));
+                GameObject go = Instantiate(chosenPrefab, centre, Quaternion.LookRotation(rot,Vector3.up));
                 //go.transform.localScale *= distances[1];
-                go.transform.localScale = new Vector3(go.transform.localScale.x*xDistances[0], go.transform.localScale.y, go.transform.localScale.z*zDistances[0]);
+                go.transform.localScale = new Vector3(go.transform.localScale.x*xDistances[0], go.transform.localScale.y*floorHeight, go.transform.localScale.z*zDistances[0]);
                 //v.y += 20;
                 //u.y += 20;
                 Debug.DrawRay(v,u,Color.white,100f);
@@ -225,5 +249,60 @@ public class BuildingMaker : MonoBehaviour
             height = hit.point.y;
         }
         return(height);
+    }
+
+    void ChoosePrefab(OSMWay way)
+    {
+        if (way.typeOfBuilding.Equals("shop"))
+            chosenPrefab = shopPrefab;
+        else if (way.typeOfBuilding.Equals("bungalow") || way.typeOfBuilding.Equals("bungalow") ||
+                 way.typeOfBuilding.Equals("cabin") || way.typeOfBuilding.Equals("detached") ||
+                 way.typeOfBuilding.Equals("farm") || way.typeOfBuilding.Equals("house") ||
+                 way.typeOfBuilding.Equals("semidetached_house"))
+        {
+            chosenPrefab = housePrefab;
+        }
+        else if (way.typeOfBuilding.Equals("commercial") || way.typeOfBuilding.Equals("kiosk") ||
+                 way.typeOfBuilding.Equals("retail") || way.typeOfBuilding.Equals("shop"))
+        {
+            chosenPrefab = shopPrefab;
+        }
+        else if (way.typeOfBuilding.Equals("fire_station"))
+        {
+            chosenPrefab = ospPrefab;
+        }else if (way.typeOfBuilding.Equals("police"))
+        {
+            chosenPrefab = policePrefab;
+        }else if (way.typeOfBuilding.Equals("bank"))
+        {
+            chosenPrefab = bankPrefab;
+        }else if (way.typeOfBuilding.Equals("fuel"))
+        {
+            chosenPrefab = gasStationPrefab;
+        }else if (way.typeOfBuilding.Equals("hotel"))
+        {
+            chosenPrefab = hotelPrefab;
+        }else if (way.typeOfBuilding.Equals("apartments"))
+        {
+            chosenPrefab = apartmentsPrefab;
+        }else if (way.typeOfBuilding.Equals("school"))
+        {
+            chosenPrefab = schoolPrefab;
+        }
+        else if (way.typeOfBuilding.Equals("yes")||way.typeOfBuilding.Equals("apartments"))
+        {
+            int index;
+            if (way.floors > 2)
+            {
+                index = rnd.Next(0, 6);
+                chosenPrefab = higherBuildingsPrefabs[index];
+            }
+            else
+            {
+                index = rnd.Next(0, 8);
+                chosenPrefab = regularBuildingsPrefabs[index];
+            }
+        }
+        else chosenPrefab = null;
     }
 }
